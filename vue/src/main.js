@@ -8,5 +8,5 @@ import App from './App.vue'
 
 createApp(App)
 .use(store)
-.user(router)
+.use(router)
 .mount('#app')
