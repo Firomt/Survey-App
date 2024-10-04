@@ -7,7 +7,7 @@
     <body class="h-full">
     ```
   -->
-  <div class="min-h-full">  
+  <div class="min-h-full">
     <Disclosure as="nav" class="bg-gray-800" v-slot="{ open }">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex h-16 items-center justify-between">
@@ -17,10 +17,10 @@
             </div>
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
-                <router-link 
+                <router-link
                 v-for="item in navigation"
                  :key="item.name"
-                  :to="item.to" 
+                  :to="item.to"
                   active-class="bg-gray-900 text-white"
                   :class="[this.$route.name === item.to.name
                   ? ''
@@ -45,8 +45,8 @@
                 </div>
                 <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
                   <MenuItems class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    <MenuItem 
-                    
+                    <MenuItem
+
                     v-slot="{ active }">
                       <a
                       @click = "logout"
@@ -87,8 +87,8 @@
           </div>
           <div class="mt-3 space-y-1 px-2">
             <DisclosureButton
-              
-             as="a" 
+
+             as="a"
              @click="logout"
               class="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white cursor-pointer">Sign Out</DisclosureButton>
           </div>
@@ -135,10 +135,13 @@ export default {
     const router = useRouter();
 
     function logout(){
-       store.commit("logout");
-       router.push({
+       store.dispatch("logout")
+       .then(()=>{
+        router.push({
         name: "Login",
        });
+       });
+
     }
 
     return {
