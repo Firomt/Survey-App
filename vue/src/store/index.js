@@ -7,6 +7,7 @@ const store = createStore({
       data: {},
       token: sessionStorage.getItem('TOKEN'),
     },
+    questionTypes: ["text", "select", "radio", "checkbox", "textarea"],
     surveys: [
       {
         id: 1,
@@ -46,7 +47,7 @@ const store = createStore({
                 {uuid: '201c1ff5-23c9-42f9-bfb5-bbc850536440', text: 'PHP'},
                 {uuid: 'b5c09733-a49e-460a-ba8a-526863010729', text: 'HTML + CSS'},
                 {uuid: 'b5c09733-a49e-460a-ba8a-526863010729', text: 'All of the above'},
-                {uuid: '2abf1cee-f5fb-427c-a220-b5d159ad6513', text: 'Everything Zura thinks will be good'},
+                {uuid: '2abf1cee-f5fb-427c-a220-b5d159ad6513', text: 'I am ok with any framework'},
               ]
             },
           },
