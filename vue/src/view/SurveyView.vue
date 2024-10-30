@@ -285,10 +285,12 @@
       import {v4 as uuidv4} from "uuid";
       import store from '../store';
       import { ref } from 'vue';
-      import { useRoute } from 'vue-router';
+      import { useRoute, useRouter} from 'vue-router';
       import PageComponent from '../components/PageComponent.vue';
       import QuestionEditor from '../components/editor/QuestionEditor.vue';
       const route = useRoute();
+
+      const router = useRouter();
 
       let model = ref({
         title: "",
@@ -331,7 +333,17 @@
           if (q.id === question.id) {
             return JSON.parse(JSON.stringify(question));
           }
-          return q; 
+          return q;
+        });
+      }
+
+      function saveSurvey(){
+        store.dispatch("saveSurvey", model.value).then(({ data }) => {
+          router.push({
+            name: "SurveyView",
+            params: {id: data.data.id},
+          });
+
         });
       }
 
