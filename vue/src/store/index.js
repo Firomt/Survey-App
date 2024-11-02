@@ -1,5 +1,6 @@
 import {createStore} from "vuex";
 import axiosClient from "../axios";
+import axios from "axios";
 
 const store = createStore({
   state: {
@@ -178,6 +179,9 @@ const store = createStore({
       }
 
       return response;
+    },
+    deleteSurvey({}, id) {
+      return axiosClient.delete(`/survey/${id}`);
     },
 
     register({commit}, user) {
