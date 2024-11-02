@@ -203,7 +203,7 @@ const store = createStore({
     }
   },
   mutations: {
-    setCurreentSurveyLoading: (state, loading) => {
+    setCurrentSurveyLoading: (state, loading) => {
       state.currentSurvey.loading = loading;
     },
 
