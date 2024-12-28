@@ -74,6 +74,27 @@
 
  const answers = ref({});
 
+ store.dispatch("getSurveyBySlug", route.params.slug);
+
+function submitSurvey() {
+  console.log(JSON.stringify(answers.value, undefined, 2));
+  store
+      .dispatch("saveSurveyAnswer", {
+           surveyId: survey.value.id,
+           answers: answers.value,
+      })
+      .then((response) => {
+        if(response.status === 201) {
+          surveyFinished.value = true;
+        }
+      });
+}
+
+function submitAnotherResponse() {
+  answers.value= {};
+  surveyFinished.value = false;
+}
+
 
 </script>
 
