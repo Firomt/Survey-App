@@ -35,7 +35,7 @@
         <h3 class="text-2xl font-semibold"> Latest Survey</h3>
         <img
         :src="data.latestSurvey.image_url"
-        class="w-[240px] mx-auto"
+        class="w-max"
         alt=""
         />
         <h3 class="font-bold text-xl mb-3"> {{ data.latestSurvey.title }}</h3>
