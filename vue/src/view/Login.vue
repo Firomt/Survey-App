@@ -4,15 +4,10 @@
       <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in to your account</h2>
     </div>
 
-
-
-
-
     <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
       <form class="space-y-6" @submit="login">
-        <div v-if="errorMsg" class=" flex items-center justify-between py-3 px-5 bg-red-500 text-white rounded">
+        <Alert v-if="errorMsg">
           {{errorMsg}}
-
           <span @click="errorMsg=''" class="w-8 h-8 flex items-center justify-center rounded-full transition-colors cursor-pointer hover:bg-[rgba(0,0,0,0.2)]">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
@@ -20,9 +15,7 @@
 
 
           </span>
-        </div>
-
-
+        </Alert>
         <div>
           <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
           <div class="mt-2">
@@ -85,6 +78,7 @@
   import store from "../store";
   import { useRouter } from "vue-router";
   import {ref} from "vue";
+  import Alert from "../components/Alert.vue";
 
     const router = useRouter();
 
